@@ -1,0 +1,16 @@
+com\appsempresariales\saberpro\controller\AterrizajeController.class
+com\appsempresariales\saberpro\repository\EstudianteRepository.class
+com\appsempresariales\saberpro\controller\EstudianteController.class
+com\appsempresariales\saberpro\errors\NotFoundException.class
+com\appsempresariales\saberpro\controller\EstudianteRestController.class
+com\appsempresariales\saberpro\service\UsuarioService.class
+com\appsempresariales\saberpro\model\Estudiante.class
+com\appsempresariales\saberpro\model\Usuario.class
+com\appsempresariales\saberpro\repository\UsuarioRepository.class
+com\appsempresariales\saberpro\model\Coordinador.class
+com\appsempresariales\saberpro\controller\CoordinadorController.class
+com\appsempresariales\saberpro\controller\UsuarioController.class
+com\appsempresariales\saberpro\repository\CoordinadorRepository.class
+com\appsempresariales\saberpro\controller\LoginController.class
+com\appsempresariales\saberpro\SaberproApplication.class
+com\appsempresariales\saberpro\service\EstudianteService.class

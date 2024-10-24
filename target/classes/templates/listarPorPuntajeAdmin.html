@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Estudiantes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(-90deg, #284055, #28a745);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 72, 255, 0.5);
+        }
+
+        .btn-salir {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+        }
+        table {
+            font-size: 0.9rem;
+        }
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 5px;  /* Reducir espacio entre celdas */
+        }
+        th {
+            white-space: nowrap;  /* Evitar que el texto se corte */
+        }
+    </style>
+</head>
+<body>
+<a href="/coordinadores" class="btn btn-dark m-3 float-left btn-salir">Volver</a>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4">Ranking Puntajes</h1>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Puntaje</th>
+                        <th>Documento</th>
+                        <th>Nombre</th>
+                        <th>Puntaje<br>Nivel</th>
+                        <th>Comuni.<br>Escrita</th>
+                        <th>Nivel</th>
+                        <th>Raz.<br>Cuantitativo</th>
+                        <th>Nivel</th>
+                        <th>Lectura<br>Crítica</th>
+                        <th>Nivel</th>
+                        <th>Comp.<br>Ciudadanas</th>
+                        <th>Nivel</th>
+                        <th>Inglés</th>
+                        <th>Nivel</th>
+                        <th>Proyectos<br>Ing.</th>
+                        <th>Nivel</th>
+                        <th>Pens.<br>Matemático</th>
+                        <th>Nivel</th>
+                        <th>Diseño<br>Software</th>
+                        <th>Nivel</th>
+                        <th>Nivel<br>Inglés</th>
+                    </tr>
+                    </thead>
+                    <tbody class="bg-light">
+                    <tr th:each="estudiante : ${estudiantes}">
+                        <td th:text="${estudiante.puntaje}"></td>
+                        <td th:text="${estudiante.numDocumento}"></td>
+                        <td th:text="${estudiante.nombre + ' ' + estudiante.apellido}"></td>
+                        <td th:text="${estudiante.puntajeNivel}"></td>
+                        <td th:text="${estudiante.comunicacionEscrita}"></td>
+                        <td th:text="${estudiante.comunicacionEscritaNivel}"></td>
+                        <td th:text="${estudiante.rzmtCuantitativo}"></td>
+                        <td th:text="${estudiante.rzmtCuantitativoNivel}"></td>
+                        <td th:text="${estudiante.lecturaCritica}"></td>
+                        <td th:text="${estudiante.lecturaCriticaNivel}"></td>
+                        <td th:text="${estudiante.competenciasCiudadanas}"></td>
+                        <td th:text="${estudiante.competenciasCiudadanasNivel}"></td>
+                        <td th:text="${estudiante.ingles}"></td>
+                        <td th:text="${estudiante.inglesNivel}"></td>
+                        <td th:text="${estudiante.proyectosIngenieria}"></td>
+                        <td th:text="${estudiante.proyectosIngenieriaNivel}"></td>
+                        <td th:text="${estudiante.pensamientoMatematico}"></td>
+                        <td th:text="${estudiante.pensamientoMatematicoNivel}"></td>
+                        <td th:text="${estudiante.diseñoSoftware}"></td>
+                        <td th:text="${estudiante.diseñoSoftwareNivel}"></td>
+                        <td th:text="${estudiante.nivelIngles}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Coordinador Page</title>
+    <style>
+        body {
+            background: linear-gradient(90deg, #aa9234, #28a745);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(255, 199, 0, 0.5);
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #ffffff;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-salir {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+        }
+
+        .btn-ranking {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #5e9448;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .container-fluid {
+            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .divider {
+            height: 2px;
+            background-color: #28a745;
+            margin: 15px 0;
+            opacity: 0.7;
+        }
+
+        .icon {
+            font-size: 2rem;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<a href="/login" class="btn btn-dark m-3 float-left btn-salir">Salir</a>
+<a href="/estudiantes/listarPorPuntajeAdmin" class="btn btn-warning m-3 btn-ranking rounded-circle "><i class="fas fa-trophy icon"></i></a>
+<h1>COORDINACIÓN</h1>
+
+<div class="container-fluid d-flex justify-content-center align-items-center">
+    <div class="row w-100">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-user-graduate icon"></i>
+                    <h5 class="card-title">Estudiantes</h5>
+                    <p class="card-text">Consulta la lista completa de estudiantes registrados en el sistema.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Máximo Puntaje: <span th:text="${maxPuntaje}"></span></li>
+                        <li class="list-group-item">Mínimo Puntaje: <span th:text="${minPuntaje}"></span></li>
+                        <li class="list-group-item">Promedio Puntajes: <span th:text="${puntajeProm}"></span></li>
+                        <li class="list-group-item">Total Puntajes: <span th:text="${countPuntajes}"></span></li>
+                    </ul>
+                    <div class="divider"></div>
+                    <a href="/estudiantes/listar" class="btn btn-primary mt-3">Ver Estudiantes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <i class="fas fa-user-plus icon"></i>
+                    <h5 class="card-title">Agregar Estudiante</h5>
+                    <p class="card-text">Añade  estudiantes al sistema pruebas Saber.</p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Campo</th>
+                            <th>Requerido</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Nombre completo</td>
+                            <td>Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Cédula</td>
+                            <td>Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Numero Registro</td>
+                            <td>Sí</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="divider"></div>
+                    <a href="/estudiantes/formEstudiante" class="btn btn-primary mt-3">Agregar Estudiante</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

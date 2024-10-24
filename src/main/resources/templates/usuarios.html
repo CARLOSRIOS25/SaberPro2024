@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Home Estudiante</title>
+    <style>
+        body {
+            background: linear-gradient(90deg, #284055, #28a745);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 72, 255, 0.5);
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #ffffff;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-salir {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 1000;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #5e9448;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .form-control {
+            margin-top: 10px;
+        }
+
+        .container-fluid {
+            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .divider {
+            height: 2px;
+            background-color: #28a745;
+            margin: 15px 0;
+            opacity: 0.7;
+        }
+
+        .icon {
+            font-size: 2rem;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<a href="/login" class="btn btn-dark m-3 float-left btn-salir">Salir</a>
+<h1>SABER PRO 2024</h1>
+<div class="container-fluid">
+    <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <i class="fas fa-list-alt icon"></i>
+            <h5 class="card-title">Listado SaberPro</h5>
+            <p class="card-text">Consulta los resultados completos de las pruebas SaberPro.</p>
+            <div class="divider"></div>
+            <a href="/estudiantes/all" class="btn btn-primary mt-3">Ver Resultados</a>
+        </div>
+    </div>
+
+    <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <i class="fas fa-user-check icon"></i>
+            <h5 class="card-title">Mis Resultados</h5>
+            <p class="card-text">Consulta tus resultados ingresando tu número de documento.</p>
+            <div class="divider"></div>
+            <form th:action="@{/estudiantes/estudiantePorDocumento}" method="get">
+                <label for="numDocumento" class="font-weight-bold">Número de Documento:</label>
+                <input type="number" id="numDocumento" name="numDocumento" class="form-control"
+                       placeholder="xxxxxxxxxx" required>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary">Consultar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+            <i class="fas fa-trophy icon"></i>
+            <h5 class="card-title">Ranking SaberPro</h5>
+            <p class="card-text">Revisa el ranking con las mejores puntuaciones del año.</p>
+            <div class="divider"></div>
+            <a href="/estudiantes/listarPorPuntaje" class="btn btn-primary mt-3">Ver Ranking</a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
